@@ -1,0 +1,50 @@
+[package]
+name = "brush-quiz"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.95"
+description = "Standalone practice and interview training application"
+license = "MIT"
+
+[dependencies]
+aes-gcm = "0.10"
+calamine = { version = "0.26.1", features = ["dates"] }
+image = { version = "0.25.10", default-features = false, features = ["png", "jpeg", "webp", "bmp"] }
+chrono = { version = "0.4", features = ["serde"] }
+directories = "6"
+eframe = { version = "0.37", default-features = false, features = ["default_fonts", "glow", "clipboard"] }
+open = "5"
+rfd = "0.17"
+rusqlite = { version = "0.40", features = ["bundled-full", "backup"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+semver = "1"
+sha2 = "0.10"
+thiserror = "2"
+tempfile = "3"
+url = "2"
+uuid = { version = "1", features = ["v4", "serde"] }
+walkdir = "2"
+windows-sys = { version = "0.61", features = ["Win32_Foundation", "Win32_Security_Cryptography", "Win32_Storage_FileSystem", "Win32_UI_Shell", "Win32_UI_WindowsAndMessaging", "Win32_System_Com", "Win32_System_Threading", "Win32_System_JobObjects", "Win32_Security", "Win32_System_Registry", "Win32_UI_HiDpi", "Win32_Graphics_Gdi", "Win32_UI_Shell_Common", "Win32_NetworkManagement_IpHelper", "Win32_NetworkManagement_Ndis", "Win32_Networking_WinSock"] }
+zip = { version = "6", default-features = false, features = ["deflate"] }
+zeroize = { version = "1", features = ["derive"] }
+egui_commonmark = { version = "0.26", default-features = false, features = ["pulldown_cmark"] }
+ureq = { version = "3", default-features = false, features = ["charset", "gzip", "json", "rustls"] }
+
+getrandom = "0.3"
+
+[dev-dependencies]
+
+[build-dependencies]
+winresource = { version = "0.1.31", default-features = false }
+
+[profile.release]
+opt-level = 2
+lto = "thin"
+codegen-units = 1
+strip = true
+
+[package.metadata.bundle]
+name = "刷题王"
+identifier = "cn.personaldesk.app"
+category = "Productivity"
